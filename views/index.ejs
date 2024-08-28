@@ -1,5 +1,46 @@
-<form action="/submit" id="city" method="post">
-    <label for="city">CITY:</label>
-    <input type="text" name="cname" id="city">
-    <input type="submit" id="city" value="GO">
-</form>
+<%- include("./partials/header.ejs") %>
+
+<% if (!wdata) {%>
+<div id="container-fluid">
+    <form action="/submit" id="city" method="post">
+        <label for="city">CITY:</label>
+        <input type="text" name="cname" id="city">
+        <input type="submit" id="city" value="GO">
+    </form>
+</div>
+<%} else if (data = locals.wdata) {%>
+    <div id="container" class="flexbox center">
+        <div id="Cityname"><h1><%= data.name %></h1></div>
+        <div id="Timestuff">
+            <div id="clock" >
+                <h2 id="date-time"></h2>
+            </div>
+
+            <div id="sunsetAndSunrise">
+                <h3>Sunset Time: <%= sunsetTime %></h3>
+                <h3>SunriseTiem: <%= sunriseTime %></h3>
+            </div>
+        </div>
+        <div id="Temperature">
+            <p>
+                Temperature:
+                    <ul>
+                        <li>Max: <%= temp_max %>°C</li>
+                        <li>Min: <%= temp_min %>°C</li>
+                        <li>Temp: <%= temp %></li>
+                    </ul>
+            </p>
+        </div> 
+
+        <div id="Icon"><img src="<%= icon_src %>" alt="weather" /></div>
+        
+        <div id="otherParams">
+            <div id="humidity">Humidity: <%= data.main.humidity%>%</div>
+            <div id="visibility">Visibility: <%= data.visibility %>m</div>
+            <div id="windSpeed">Wind Speed: <%= data.wind.speed %>m/s</div>
+            <div id="cloudiness">Cloudiness: <%= data.clouds.all %></div>
+        </div>
+    </div>
+<% } %>
+
+<%- include("./partials/footer.ejs") %>
