@@ -4,7 +4,7 @@ import axios from "axios";
 const app = express();
 const port = 3000;
 const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-const API_KEY = "c85bb129275e2557853bbbd0ea998016";
+const API_KEY = process.env.API_KEY;
 
 function kelvinToCelsius(tempKelvin){
     const tempCelsius = (tempKelvin - 273.15).toFixed(2);
