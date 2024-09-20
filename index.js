@@ -48,20 +48,16 @@ app.post("/submit", async (req, res) => {
     };
     try {
         const result = await axios.get(API_URL, {params:parameter});
-        console.log("HI I am good")
-        console.log(result.data)
+        //console.log("HI I am good")
+        //console.log(result.data)
         const icon = result.data?.weather?.[0]?.icon || '../public/images/not_available.jpg'
         const icon_src = `https://openweathermap.org/img/wn/${icon}@2x.png`
         const temp_max = kelvinToCelsius(result.data.main.temp_max);
-        const temp_min = kelvinToCelsius(result.data.main.temp_min);
-        const avg_temp = kelvinToCelsius(result.data.main.temp);
         const sunset = timeConverter(result.data.sys.sunset);
         const sunrise = timeConverter(result.data.sys.sunrise);
         res.render("index.ejs", {wdata: result.data,
                                 icon_src: icon_src,
                                 temp_max: temp_max,
-                                temp_min: temp_min,
-                                temp: avg_temp,
                                 sunriseTime: sunrise,
                                 sunsetTime: sunset
                                 });
