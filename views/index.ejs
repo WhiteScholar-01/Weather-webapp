@@ -1,46 +1,76 @@
 <%- include("./partials/header.ejs") %>
-
-<% if (!wdata) {%>
-<div id="container-fluid">
-    <form action="/submit" id="city" method="post">
-        <label for="city">CITY:</label>
-        <input type="text" name="cname" id="city">
-        <input type="submit" id="city" value="GO">
-    </form>
-</div>
-<%} else if (data = locals.wdata) {%>
-    <div id="container" class="flexbox center">
-        <div id="Cityname"><h1><%= data.name %></h1></div>
-        <div id="Timestuff">
-            <div id="clock" >
-                <h2 id="date-time"></h2>
-            </div>
-
-            <div id="sunsetAndSunrise">
-                <h3>Sunset Time: <%= sunsetTime %></h3>
-                <h3>SunriseTiem: <%= sunriseTime %></h3>
-            </div>
-        </div>
-        <div id="Temperature">
-            <p>
-                Temperature:
-                    <ul>
-                        <li>Max: <%= temp_max %>°C</li>
-                        <li>Min: <%= temp_min %>°C</li>
-                        <li>Temp: <%= temp %></li>
-                    </ul>
-            </p>
-        </div> 
-
-        <div id="Icon"><img src="<%= icon_src %>" alt="weather" /></div>
-        
-        <div id="otherParams">
-            <div id="humidity">Humidity: <%= data.main.humidity%>%</div>
-            <div id="visibility">Visibility: <%= data.visibility %>m</div>
-            <div id="windSpeed">Wind Speed: <%= data.wind.speed %>m/s</div>
-            <div id="cloudiness">Cloudiness: <%= data.clouds.all %></div>
-        </div>
+<body class=" bg-img chakraPetchFont fontcolour">
+    <% if (!wdata) {%>
+    <div id="container-fluid" class="d-flex div-wrapper pt-5 mt-5 h-100 justify-content-center align-items-center fs-5 ">
+        <form action="/submit" id="city" method="post">
+            <label for="city" class=" bg-blur">CITY:</label>
+            <input type="text" name="cname" id="city">
+            <input type="submit" id="city" value="GO" class="btn btn-warning btn-gradient">
+        </form>
     </div>
-<% } %>
+    <%} else if (data = locals.wdata) {%>
+        <div id="container" class="bg-blur d-inline-block div-wrapper h-100 w-100  mt-5 justify-content-center align-middle ">
+            <div class="shadow-lg p-3 mx-5  rounded ">
+                <div id="Cityname" class="d-flex justify-content-center Display-1 "><h1><%= data.name %></h1></div>
 
+                <div id="Timestuff" class="d-flex flex-wrap justify-content-center ">
+                    <div id="clock" >
+                        <h2 id="date-time" ></h2>
+                    </div>
+                </div>
+                
+                <div class="container-fluid">
+                    <div class="row"> 
+                        <div class="col pt-5 mt-5 ">    
+                            <div id=" Temperature">
+                                <p>
+                                    <h3>TEMPERATURE:  <%= temp_max %>°C</h3> 
+                            </div>
+
+                            <div id="otherParams">
+                                <div id="humidity"><h3>HUMIDITY: <%= data.main.humidity%>%</h3></div>
+                                <div id="visibility"><h3>VISIBILITY: <%= data.visibility %>m </h3></div>
+                                <div id="windSpeed"><h3>WIND-SPEED: <%= data.wind.speed %>m/s</h3></div>
+                                <div id="cloudiness"><h3>CLOUDINESS: <%= data.clouds.all %></h3></div>
+                            </div>   
+                        </div>
+                        <div class="col pb-5"> 
+                            <div id="Icon" class=" d-flex justify-content-center"><img  src="<%= icon_src %>" height="250px" alt="weather" /></div>
+                            
+                            <div id="sunsetAndSunrise" class="d-flex justify-content-end  ">
+                                <div>
+                                    <h2>SUNRISETIME: <%= sunriseTime %></h2>
+                                    <h2>SUNSET TIME: <%= sunsetTime %></h2>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+<% } %>
+<section id="contact" >
+    <div class="container-fluidpt-5 m-5 ">
+      <div class="mt-4 pt-5 text-center   rounded">
+        <h1 class=" mb-5  " style="color: black;">
+          Get In Touch
+        </h1>
+        <a href="mailto:saqibali1729@gmail.com" class="btn btn-outline-dark btn-lg btn-success px-2 rounded  display-5 para">
+          Email me
+        </a>
+        <a href="https://linkedin.com/in/saqib-a-2a3a01287" target="_blank" class="btn btn-success btn-outline-dark btn-lg px-2 rounded text-nowrap para">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <footer id="footer" >
+      <div class="d-block align-items-end footercolour">
+        <div class="d-flex justify-content-center align-items-end">
+            <p>©2024 Saqib Ali</p>
+        </div>
+      </div>
+    </footer>
+</section>
 <%- include("./partials/footer.ejs") %>
+</body>

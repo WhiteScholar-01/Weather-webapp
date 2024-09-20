@@ -58,12 +58,12 @@ app.post("/submit", async (req, res) => {
         const sunset = timeConverter(result.data.sys.sunset);
         const sunrise = timeConverter(result.data.sys.sunrise);
         res.render("index.ejs", {wdata: result.data,
-                                    icon_src: icon_src,
-                                    temp_max: temp_max,
-                                    temp_min: temp_min,
-                                    temp: avg_temp,
-                                    sunriseTime: sunrise,
-                                    sunsetTime: sunset
+                                icon_src: icon_src,
+                                temp_max: temp_max,
+                                temp_min: temp_min,
+                                temp: avg_temp,
+                                sunriseTime: sunrise,
+                                sunsetTime: sunset
                                 });
         
         

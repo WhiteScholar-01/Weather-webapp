@@ -2,6 +2,18 @@
     max-width: 600px;
   }
 
+.bg-img{
+  background-image: url('/images/bgbody.jpg');
+  object-fit: cover;
+}
+/*below code is just for some other prject
+.gradient-background{
+  background: linear-gradient( 30deg,#caed62, hsl(198, 57%, 64%), #afcc57);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+  height: 70vh;
+}
+*/
 /* for smaller screens below 700px */
 @media only screen and (max-width: 700px) {
     body {
@@ -15,3 +27,22 @@
       font-size: 1.6rem;
     }
   }
+
+/*
+.chillaxfont{
+  font-family: 'Chillax', sans-serif;
+}
+.segmentsfont{
+  font-family: 'Segment', sans-serif;
+}*/
+.chakraPetchFont{
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.footercolour{
+  color: black;
+}
+.fontcolour{
+  color: #67961b;
+}
